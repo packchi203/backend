@@ -1,0 +1,74 @@
+spring:
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+  datasource:
+    #    url: jdbc:mysql://forumaptech.ca9slibhnzcr.ap-northeast-1.rds.amazonaws.com/forum_aptech?createDatabaseIfNotExist=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/forums?createDatabaseIfNotExist=true
+    #    url: jdbc:mysql://ap-southeast.connect.psdb.cloud/forums?createDatabaseIfNotExist=true&ssl={"rejectUnauthorized":true}
+    #    url: jdbc:mysql://google/forum_aptech?cloudSqlInstance=appcuaduc:asia-southeast1:forums-db&socketFactory=com.google.cloud.sql.mysql.SocketFactory&user=root&password=Dduc_NV0712
+    username: root
+    password:
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  mail:
+    port: 587
+    host: smtp.gmail.com
+    #    username: forum.fptaptech@gmail.com
+    username: ahhaclong@gmail.com
+    password: vvua itly vvzb nnah
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+      starttls:
+        enable: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 224054232295-36u4ingcihap5o204j52s0lk3dvq51hj.apps.googleusercontent.com
+            clientSecret: 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
+            redirectUri: "https://localhost:8080/api/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+          github:
+            clientId: 31c2e8628954c21966c1
+            clientSecret: b361c098f56d45e7df4149c1cce6639b65eaac89
+            redirectUri: "https://newbiedev-pqvws.appengine.bfcplatform.vn/oauth2/callback/{registrationId}"
+            scope:
+              - user:email
+              - read:user
+        provider:
+          facebook:
+            authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
+            tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
+            userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
+allowed:
+  origin: http://localhost:3000
+
+app:
+  auth:
+
+    tokenSecret: 04ca023b39512e46d0c2cf4b48d5aac61d34302994c87ed4eff225dcf3b0a218739f3897051a057f9b846a69ea2927a587044164b7bae5e1306219d50b588cb1
+    tokenExpirationMsec: 864000000
+  cors:
+    allowedOrigins: http://localhost:3000,http://localhost:8080,https://itcomm.onrender.com/,https://www.itforum.site/
+  oauth2:
+    # After successfully authenticating with the OAuth2 Provider,
+    # we'll be generating an auth token for the user and sending the token to the
+    # redirectUri mentioned by the client in the /oauth2/authorize request.
+    # We're not using cookies because they won't work well in mobile clients.
+    authorizedRedirectUris:
+      - https://www.itforum.site/api/oauth2/redirect
