@@ -25,7 +25,7 @@ public class WebsocketController {
     @Autowired
     PostService postService;
 //    @Autowired
-//    SimpMessagingTemplate simpMessagingTemplate;
+
     @Autowired
     NotificationService notificationService;
 
