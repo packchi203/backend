@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,4 +22,5 @@ public class TagFollowResDto {
     private String desc;
     private boolean important;
     private String color_bg;
+    private LocalDateTime createdAt;
 }

@@ -219,6 +219,7 @@ public class PostService {
 
     public void deletePost(Long id) {
         postRepository.deleteById(id);
+
     }
 
     public Post findByID(Long id) throws AppException {

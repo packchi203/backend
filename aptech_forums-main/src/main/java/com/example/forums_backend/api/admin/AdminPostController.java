@@ -44,7 +44,7 @@ public class AdminPostController {
 
     @RequestMapping(value = POST_PATH_WITH_ID, produces = "application/json", consumes = "application/json", method = RequestMethod.POST)
     public ResponseEntity<?> update(@RequestBody Post post, @PathVariable Long id) {
-        return ResponseEntity.ok(" ");
+        return ResponseEntity.ok("Updated successfully");
     }
 
     @RequestMapping(value = POST_PATH_WITH_ID, method = RequestMethod.DELETE)
